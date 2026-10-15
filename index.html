@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Digital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&family=Hedvig+Letters+Serif:opsz@12..24&family=Kaushan+Script&family=Story+Script&display=swap');
+
+/* === BASE STYLE (MOBILE / HP) === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Google Sans Flex", sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #FCFAF8;
+}
+
+:root {
+    --warna-utama: #0b3b2f;
+    --warna-seconder: #3f7a64;
+    --warna-primary: #b08a4f;
+    --warna-bg-card: #eff4f3;
+    --warna-diskon: #e63946;
+}
+
+#container-header {
+    height: 10vh;
+    min-height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+}
+
+#container-header img {
+    height: auto;
+    width: 32%;
+    max-width: 110px;
+    object-fit: contain;
+}
+
+#container-header a {
+    background-color: var(--warna-primary); 
+    color: #ffffff;             
+    padding: 8px 16px;
+    border-radius: 9999px;    
+    text-decoration: none;    
+    display: inline-flex;     
+    align-items: center;
+    font-size: 12px;
+    white-space: nowrap;
+    font-weight: 500;
+}
+
+#container-header a i {
+    margin-right: 6px;
+}
+
+#isi1 {
+    background: url("img/bg-hero.webp") no-repeat center bottom / cover;
+    width: 100%;
+    min-height: calc(100vh - 10vh);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-top: 20px;
+}
+
+#isi1 #judul {
+    width: 90%;
+    max-width: 1000px;
+    margin-bottom: 20px;
+}
+
+#isi1 #judul h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+#isi1 #judul p {
+    font-size: 0.95rem;
+    color: #555555;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.momen {
+    display: inline-block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    font-weight: 600;
+}
+
+/* Tombol Lihat Katalog */
+.btn-katalog {
+    background-color: var(--warna-primary);
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 9999px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(176, 138, 79, 0.3);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-katalog:hover {
+    transform: translateY(-2px);
+    opacity: 0.95;
+    cursor: pointer;
+}
+
+/* === MOCKUP 3D HP HERO === */
+.mockup-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 15px;
+    padding-bottom: 40px;
+    perspective: 1000px;
+}
+
+.phone-frame {
+    width: 170px;
+    height: 350px;
+    background: #ffffff;
+    border: 5px solid #ffffff;
+    border-radius: 32px;
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.12),
+        0 3px 10px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.phone-frame::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 6px;
+    background: #000000;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.phone-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 26px;
+}
+
+.phone-left {
+    transform: rotateY(15deg) rotateX(5deg) rotateZ(-6deg) translateY(10px);
+    z-index: 2;
+}
+
+.phone-right {
+    transform: rotateY(-15deg) rotateX(5deg) rotateZ(6deg) translateY(0px);
+    margin-left: -30px;
+    z-index: 1;
+}
+
+.phone-frame:hover {
+    transform: scale(1.03) translateY(-5px);
+    z-index: 5;
+    cursor: pointer;
+}
+
+.slide-down-out {
+    transform: translateY(20px);
+    opacity: 0;
+}
+
+.slide-down-in {
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+/* === SECTION FITUR TERLENGKAP === */
+#fitur-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#fitur-section h2 {
+    color: var(--warna-utama);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+#fitur-section .subjudul {
+    color: #666666;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+.avatar-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 5px 25px 5px;
+    width: 100%;
+    max-width: 100%;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.avatar-row::-webkit-scrollbar {
+    display: none;
+}
+
+.avatar-item {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #ffffff;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.card-fitur-pills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.fitur-pill {
+    background-color: var(--warna-bg-card);
+    color: var(--warna-utama);
+    padding: 12px 18px;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    border: 1px solid rgba(63, 122, 100, 0.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02);
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.fitur-pill i {
+    color: var(--warna-primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.fitur-pill:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    background-color: #e4eeeb;
+}
+
+/* === SECTION PILIHAN TEMA / KATALOG === */
+#katalog-section {
+    width: 100%;
+    max-width: 1100px;
+    margin: 60px auto 60px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+#katalog-section h2 {
+    color: var(--warna-utama);
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.filter-wrapper {
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-select {
+    padding: 10px 20px;
+    border-radius: 9999px;
+    border: 2px solid var(--warna-seconder);
+    background-color: #ffffff;
+    color: var(--warna-utama);
+    font-size: 0.95rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+}
+
+.filter-select:focus {
+    border-color: var(--warna-primary);
+}
+
+/* Grid Card Tema */
+.grid-katalog {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.card-tema {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card-tema:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Pita Ribbon Diskon di Pojok Atas Kartu */
+.ribbon-diskon {
+    position: absolute;
+    top: 18px;
+    right: -32px;
+    transform: rotate(45deg);
+    background-color: var(--warna-diskon);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 5px 35px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* Preview HP 3D Dalam Kartu - BG Bisa di-Custom */
+.card-mockup-bg {
+    width: 100%;
+    height: 270px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 800px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-phone-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.card-phone {
+    width: 110px;
+    height: 220px;
+    background: #ffffff;
+    border: 3px solid #2b2b2b;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.card-phone::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 4px;
+    background: #000000;
+    border-radius: 6px;
+    z-index: 10;
+}
+
+.card-phone-screen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+}
+
+.card-phone-left {
+    transform: rotateY(18deg) rotateX(8deg) rotateZ(-6deg) translateY(10px);
+    z-index: 2;
+}
+
+.card-phone-right {
+    transform: rotateY(-18deg) rotateX(8deg) rotateZ(6deg) translateY(-5px);
+    margin-left: -25px;
+    z-index: 1;
+}
+
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    text-align: left;
+}
+
+.card-judul {
+    color: var(--warna-utama);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.card-kategori {
+    display: inline-block;
+    align-self: flex-start;
+    background: var(--warna-bg-card);
+    color: var(--warna-seconder);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 9999px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.container-harga {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 18px;
+    margin-top: auto;
+}
+
+.card-harga {
+    color: var(--warna-primary);
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.card-harga-coret {
+    color: #a0a0a0;
+    font-size: 0.85rem;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.btn-contoh {
+    background-color: var(--warna-utama);
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.btn-contoh:hover {
+    background-color: var(--warna-seconder);
+}
+
+/* === FOOTER SECTION === */
+#footer-section {
+    background-color: var(--warna-utama);
+    color: #ffffff;
+    padding: 40px 20px 25px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-brand img {
+    max-width: 130px;
+    height: auto;
+    filter: brightness(0) invert(1);
+}
+
+.footer-brand p {
+    font-size: 0.9rem;
+    color: #bfd8c9;
+    max-width: 400px;
+    line-height: 1.4;
+}
+
+.footer-sosmed {
+    display: flex;
+    gap: 15px;
+    margin-top: 5px;
+}
+
+.sosmed-link {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.sosmed-link:hover {
+    background-color: var(--warna-primary);
+    transform: translateY(-3px);
+}
+
+.footer-copyright {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 25px;
+    padding-top: 20px;
+    font-size: 0.8rem;
+    color: #8faea1;
+    width: 100%;
+}
+
+/* === MEDIA QUERY: TABLET (Layar >= 768px) === */
+@media screen and (min-width: 768px) {
+    #container-header {
+        padding: 10px 30px;
+        margin-top: 10px;
+    }
+
+    #container-header img {
+        width: 18vw;
+        max-width: 160px;
+    }
+
+    #container-header a {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    #isi1 #judul {
+        margin-top: 20px;
+    }
+
+    #isi1 #judul h1 {
+        font-size: 2.8rem;
+    }
+
+    #isi1 #judul p {
+        font-size: 1.2rem;
+    }
+
+    .btn-katalog {
+        padding: 12px 28px;
+        font-size: 1rem;
+    }
+
+    /* Penyesuaian posisi container mockup agar lebih turun ke bawah di tablet */
+    .mockup-wrapper {
+        margin-top: 50px;
+        padding-bottom: 80px;
+    }
+
+    /* Ukuran HP diperbesar khusus tampilan Tablet */
+    .phone-frame {
+        width: 270px;
+        height: 550px;
+        border: 8px solid #ffffff;
+        border-radius: 46px;
+    }
+
+    .phone-frame::before {
+        top: 12px;
+        width: 65px;
+        height: 8px;
+    }
+
+    .phone-screen {
+        border-radius: 38px;
+    }
+
+    .phone-right {
+        margin-left: -55px;
+    }
+
+    #fitur-section h2, #katalog-section h2 {
+        font-size: 2.3rem;
+    }
+
+    #fitur-section .subjudul {
+        font-size: 1.1rem;
+    }
+
+    .avatar-item {
+        width: 85px;
+        height: 85px;
+    }
+
+    .card-fitur-pills {
+        gap: 14px;
+    }
+
+    .fitur-pill {
+        padding: 14px 22px;
+        font-size: 0.98rem;
+    }
+}
+
+/* === MEDIA QUERY: DESKTOP / PC (Layar >= 1024px) === */
+@media screen and (min-width: 1024px) {
+    #container-header {
+        padding: 10px 50px;
+        margin-top: 10px;
+    }
+
+    #container-header img {
+        width: 15vw;
+        max-width: 200px;
+    }
+
+    #container-header a {
+        padding: 10px 24px;
+        font-size: 15px;
+    }
+
+    #isi1 #judul h1 {
+        font-size: 3.5rem;
+    }
+
+    #isi1 #judul p {
+        font-size: 1.35rem;
+    }
+
+    .mockup-wrapper {
+        margin-top: 40px;
+        padding-bottom: 60px;
+    }
+
+    .phone-frame {
+        width: 250px;
+        height: 510px;
+        border: 8px solid #ffffff;
+        border-radius: 44px;
+    }
+
+    .phone-frame::before {
+        top: 14px;
+        width: 70px;
+        height: 9px;
+    }
+
+    .phone-screen {
+        border-radius: 35px;
+    }
+
+    .phone-right {
+        margin-left: -55px;
+    }
+}
+    </style>
+  </head>
+  <body>
+    <div id="container-header">
+        <img src="img/logo.png" alt="Logo"/>
+        <a href="https://wa.me/6285161301416" target="_blank"><i class="bi bi-whatsapp"></i>WhatsApp</a>
+    </div>
+
+    <div id="isi1">
+        <div id="judul">
+            <h1>
+              <span style="color: var(--warna-utama);">Undangan</span> 
+              <span style="color: var(--warna-primary);">Digital</span>
+            </h1>
+            <p>Berbagi Momen Spesial Dengan <span id="momen" class="momen">Cepat</span>!</p>
+
+            <a href="#katalog-section" class="btn-katalog">
+                <i class="bi bi-arrow-right"></i> Lihat Katalog
+            </a>
+        </div>
+
+        <!-- MOCKUP 3D HP HERO -->
+        <div class="mockup-wrapper">
+            <!-- HP Kiri -->
+            <div class="phone-frame phone-left">
+                <img id="screen-left" src="img/hp_utama/1.jpg" alt="Desain Undangan 1" class="phone-screen"/>
+            </div>
+
+            <!-- HP Kanan -->
+            <div class="phone-frame phone-right">
+                <img id="screen-right" src="img/hp_utama/2.jpg" alt="Desain Undangan 2" class="phone-screen"/>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION FITUR TERLENGKAP -->
+    <div id="fitur-section">
+        <h2>Fitur Terlengkap</h2>
+        <p class="subjudul">Dipercaya lebih dari 4000 pasangan setiap bulannya</p>
+
+        <!-- Avatar Slider Pasangan -->
+        <div class="avatar-row" id="avatar-container">
+            <!-- Diisi otomatis dari array JavaScript -->
+        </div>
+
+        <!-- Poin-poin Fitur Bentuk Pill -->
+        <div class="card-fitur-pills" id="fitur-container">
+            <!-- Diisi otomatis dari array JavaScript -->
+        </div>
+    </div>
+
+    <!-- SECTION PILIHAN TEMA / KATALOG -->
+    <div id="katalog-section">
+        <h2>Pilihan Tema</h2>
+        
+        <!-- Filter Dropdown -->
+        <div class="filter-wrapper">
+            <select id="filter-kategori" class="filter-select">
+                <!-- Diisi otomatis dari array filter JavaScript -->
+            </select>
+        </div>
+
+        <!-- Grid Cards Tema dengan Pratinjau HP 3D -->
+        <div class="grid-katalog" id="katalog-container">
+            <!-- Diisi otomatis dari array JavaScript -->
+        </div>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer id="footer-section">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="img/logo.png" alt="Logo Footer">
+                <p>Platform Pembuatan Undangan Digital Elegan, Praktis, dan Cepat untuk Momen Spesial Anda.</p>
+            </div>
+
+            <!-- Media Sosial TikTok & Instagram -->
+            <div class="footer-sosmed">
+                <a href="https://www.tiktok.com/@masfaitin?_r=1&_t=ZS-9Aa1Rk6879h" target="_blank" class="sosmed-link" title="TikTok">
+                    <i class="bi bi-tiktok"></i>
+                </a>
+                <a href="https://www.instagram.com/fazz_4121?cplk=aDRyZDE3NnRsaDBt" target="_blank" class="sosmed-link" title="Instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+            </div>
+
+            <div class="footer-copyright">
+                &copy; 2026 Undangan Digital. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+<script>
+// === 1. ARRAY & ANIMASI TULISAN MOMEN ===
+const kataArray = ["Cepat!", "Mudah!", "Aman!", "Praktis!", "Seru!"];
+let indexKata = 0;
+const elemenMomen = document.getElementById("momen");
+
+setInterval(() => {
+    elemenMomen.classList.add("slide-down-out");
+
+    setTimeout(() => {
+        indexKata = (indexKata + 1) % kataArray.length;
+        elemenMomen.textContent = kataArray[indexKata];
+
+        elemenMomen.classList.remove("slide-down-out");
+        elemenMomen.classList.add("slide-down-in");
+
+        setTimeout(() => {
+            elemenMomen.classList.remove("slide-down-in");
+        }, 50);
+
+    }, 400);
+}, 2500);
+
+
+// === 2. ARRAY & RENDER AVATAR PASANGAN ===
+const avatarPasangan = [
+    "img/bunder/1 (1).jpg",
+    "img/bunder/1 (2).jpg",
+    "img/bunder/1 (3).jpg",
+    "img/bunder/1 (4).jpg",
+    "img/bunder/1 (5).jpg",
+    "img/bunder/1 (6).jpg",
+    "img/bunder/1 (7).jpg",
+    "img/bunder/1 (8).jpg",
+    "img/bunder/1 (9).jpg",
+    "img/bunder/1 (10).jpg",
+    "img/bunder/1 (11).jpg",
+    "img/bunder/1 (12).jpg"
+];
+
+const avatarContainer = document.getElementById("avatar-container");
+avatarPasangan.forEach(url => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.alt = "Pasangan";
+    img.className = "avatar-item";
+    avatarContainer.appendChild(img);
+});
+
+// Animasi Auto-Scroll Bergeser Perlahan
+let isHovered = false;
+avatarContainer.addEventListener('mouseenter', () => isHovered = true);
+avatarContainer.addEventListener('mouseleave', () => isHovered = false);
+avatarContainer.addEventListener('touchstart', () => isHovered = true);
+avatarContainer.addEventListener('touchend', () => isHovered = false);
+
+setInterval(() => {
+    if (!isHovered) {
+        avatarContainer.scrollLeft += 1;
+        if (avatarContainer.scrollLeft >= (avatarContainer.scrollWidth - avatarContainer.clientWidth - 1)) {
+            avatarContainer.scrollLeft = 0;
+        }
+    }
+}, 20);
+
+
+// === 3. ARRAY & RENDER LIST FITUR ===
+const daftarFitur = [
+    "Pengerjaan kurang dari 24 jam",
+    "Revisi sepuasnya sampai hari - H",
+    "Nama tamu tak terbatas",
+    "Bebas request musik",
+    "Desain Premium",
+    "Kualitas Terbaik !!"
+];
+
+const fiturContainer = document.getElementById("fitur-container");
+daftarFitur.forEach(fitur => {
+    const div = document.createElement("div");
+    div.className = "fitur-pill";
+    div.innerHTML = `<i class="bi bi-check-circle-fill"></i> <span>${fitur}</span>`;
+    fiturContainer.appendChild(div);
+});
+
+
+// === 4. ARRAY & RENDER DROPDOWN FILTER ===
+const opsiFilter = [
+    { label: "Semua Tema", value: "semua" },
+    { label: "Dengan Foto", value: "dengan-foto" },
+    { label: "Tanpa Foto", value: "tanpa-foto" }
+];
+
+const filterSelect = document.getElementById("filter-kategori");
+opsiFilter.forEach(opsi => {
+    const opt = document.createElement("option");
+    opt.value = opsi.value;
+    opt.textContent = opsi.label;
+    filterSelect.appendChild(opt);
+});
+
+
+// === 5. ARRAY & RENDER TEMA KATALOG (Termasuk Custom Gambar Background Mockup) ===
+const daftarKatalog = [
+    {
+        id: 1,
+        judul: "Tema Wayang 01",
+        kategori: "dengan-foto",
+        kategoriLabel: "Dengan Foto",
+        hargaDiskon: "Rp 149.000",
+        hargaAsli: "Rp 250.000",
+        labelDiskon: "30%",
+        bgMockup: "url('img/bg-card-wayang.jpg')",
+        gambarLeft: "img/hp_utama/1.jpg",
+        gambarRight: "img/hp_utama/2.jpg",
+        link: "javascript:void(0)"
+    },
+    {
+        id: 2,
+        judul: "Paket Simple Minimalis",
+        kategori: "tanpa-foto",
+        kategoriLabel: "Tanpa Foto",
+        hargaDiskon: "Rp 99.000",
+        hargaAsli: "Rp 180.000",
+        labelDiskon: "45%",
+        bgMockup: "url('img/bg-card-minimalis.jpg')",
+        gambarLeft: "img/hp_utama/2.jpg",
+        gambarRight: "img/hp_utama/1.jpg",
+        link: "javascript:void(0)"
+    },
+    {
+        id: 3,
+        judul: "Paket Luxury Gold",
+        kategori: "dengan-foto",
+        kategoriLabel: "Dengan Foto",
+        hargaDiskon: "Rp 199.000",
+        hargaAsli: "Rp 350.000",
+        labelDiskon: "43%",
+        bgMockup: "linear-gradient(135deg, #1c2b26 0%, #081410 100%)",
+        gambarLeft: "img/hp_utama/1.jpg",
+        gambarRight: "img/hp_utama/2.jpg",
+        link: "javascript:void(0)"
+    },
+    {
+        id: 4,
+        judul: "Paket Rustic Floral",
+        kategori: "tanpa-foto",
+        kategoriLabel: "Tanpa Foto",
+        hargaDiskon: "Rp 119.000",
+        hargaAsli: "Rp 200.000",
+        labelDiskon: "40%",
+        bgMockup: "url('img/bg-card-rustic.jpg')",
+        gambarLeft: "img/hp_utama/2.jpg",
+        gambarRight: "img/hp_utama/1.jpg",
+        link: "javascript:void(0)"
+    }
+];
+
+const katalogContainer = document.getElementById("katalog-container");
+
+function renderKatalog(filterValue = "semua") {
+    katalogContainer.innerHTML = "";
+
+    const hasilFilter = filterValue === "semua" 
+        ? daftarKatalog 
+        : daftarKatalog.filter(item => item.kategori === filterValue);
+
+    hasilFilter.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "card-tema";
+        
+        const bgStyle = item.bgMockup ? item.bgMockup : "linear-gradient(135deg, #4d3126 0%, #2b1a13 100%)";
+
+        card.innerHTML = `
+            ${item.labelDiskon ? `<span class="ribbon-diskon">Disc. ${item.labelDiskon}</span>` : ''}
+            
+            <div class="card-mockup-bg" style="background: ${bgStyle}; background-size: cover; background-position: center;">
+                <div class="card-phone-wrapper">
+                    <div class="card-phone card-phone-left">
+                        <img src="${item.gambarLeft}" alt="${item.judul}" class="card-phone-screen">
+                    </div>
+                    <div class="card-phone card-phone-right">
+                        <img src="${item.gambarRight}" alt="${item.judul}" class="card-phone-screen">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <span class="card-kategori">${item.kategoriLabel}</span>
+                <h3 class="card-judul">${item.judul}</h3>
+                <div class="container-harga">
+                    <span class="card-harga">${item.hargaDiskon}</span>
+                    ${item.hargaAsli ? `<span class="card-harga-coret">${item.hargaAsli}</span>` : ''}
+                </div>
+                <a href="${item.link}" class="btn-contoh">Lihat Contoh</a>
+            </div>
+        `;
+        katalogContainer.appendChild(card);
+    });
+}
+
+// Event handler saat dropdown filter diubah
+filterSelect.addEventListener("change", (e) => {
+    renderKatalog(e.target.value);
+});
+
+// Render awal saat halaman dimuat
+renderKatalog();
+</script>
+  </body>
+</html>
